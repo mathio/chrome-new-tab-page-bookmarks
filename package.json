@@ -5,6 +5,6 @@
   "license": "MIT",
   "author": "",
   "scripts": {
-    "build": "zip -j build.zip src/*"
+    "build": "zip -j chrome-extension.zip src/*"
   }
 }
