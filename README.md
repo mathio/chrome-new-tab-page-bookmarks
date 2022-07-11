@@ -1,7 +1,10 @@
-# New Tab Page Bookmarks
+#  ![icon](https://raw.githubusercontent.com/mathio/chrome-new-tab-page-bookmarks/main/src/icon32.png) New Tab Page Bookmarks
 
 Displays your bookmarks in multiple columns for quick access from the new tab page.
 
+## Preview
+
+![screenshot](https://raw.githubusercontent.com/mathio/chrome-new-tab-page-bookmarks/main/store/screenshot_1280x800.png "Extension Screenshot")
 
 ## Description
 
@@ -14,6 +17,17 @@ Displays your bookmarks in multiple columns for quick access from the new tab pa
 
 ## Permission justification
 
-### bookmarks justification
+Extension requires [permissions to access your bookmarks](https://developer.chrome.com/docs/extensions/reference/bookmarks/) to display them on the new tab page. Your bookmarks do not leave your device. It loads favicons via Google API ([using t2.gstatic.com/faviconV2 like this](https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://github.com&size=16)) and might disclose domains & subdomains (not full URLs) from your bookmarks to Google.
 
-Extension requires [access to your bookmarks](https://developer.chrome.com/docs/extensions/reference/bookmarks/) to display them on the new tab page. Your bookmarks do not leave your device. It loads favicons via Google API and might disclose domains & subdomains (not full URLs) from your bookmarks to Google.
+## Installation
+
+Manually: 
+1. Download or clone this repo
+1. Go to Chrome menu `⋮` -> `More Tools` -> `Extensions` and enable `Developer mode` in the top right corner.
+2. Click on `Load unpacked` button and point to `src/` folder.
+3. Open new browser tab to see the extension!
+
+
+## Development
+
+Run `yarn build` to zip the extension for the purpose of uploading to Chrome Web Store.
