@@ -1,0 +1,10 @@
+{
+  "name": "chrome-new-tab-page-bookmarks",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "",
+  "scripts": {
+    "build": "zip -j build.zip src/*"
+  }
+}
