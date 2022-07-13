@@ -4,6 +4,10 @@ Displays your bookmarks in multiple columns for quick access from the new tab pa
 
 ## Installation
 
+From Chrome Web Store:
+1. go to [Chrome Web Store](https://chrome.google.com/webstore/detail/new-tab-page-bookmarks/nenadkoihofnhlaokenacmknknmlgdcm)
+2. Click `Add to Chrome` button
+
 Manually: 
 1. [Download latest release from Github](https://github.com/mathio/chrome-new-tab-page-bookmarks/releases/download/latest/chrome-extension.zip)
 2. Unpack contents of the zip file to a directory (eg. `chrome-extension/`)
@@ -18,7 +22,7 @@ Manually:
 
 ## Description
 
-- does NOT manage your bookmarks, the built-in bookmarks manager for that (CMD+ALT+B / CTRL+SHIFT+O)
+- does NOT manage your bookmarks, the built-in bookmarks manager for that (`CMD+ALT+B` / `CTRL+SHIFT+O`)
 - does NOT sync your bookmarks, Chrome already does that
 - there are NO settings, deal with it
 - just displays your bookmarks in multiple columns for quick access from the new tab page
