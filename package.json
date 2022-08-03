@@ -1,13 +1,13 @@
 {
-	"name": "chrome-new-tab-page-bookmarks",
-	"version": "1.1.0",
-	"main": "index.js",
-	"license": "MIT",
-	"author": "",
-	"scripts": {
-		"build-chrome": "mkdir -p dist/chrome-extension; cp -r src/* chrome/src/* dist/chrome-extension && zip -j dist/chrome-extension.zip dist/chrome-extension/*",
-		"build-firefox": "mkdir -p dist/firefox-extension; cp -r src/* firefox/src/* dist/firefox-extension && zip -j dist/firefox-extension.zip dist/firefox-extension/*",
-		"clean": "rm -rf dist",
-		"build": "\"$npm_execpath\" build-chrome && \"$npm_execpath\" build-firefox"
-	}
+  "name": "chrome-new-tab-page-bookmarks",
+  "version": "1.1.0",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "",
+  "scripts": {
+    "build-chrome": "mkdir -p dist/chrome-extension; cp -r src/* chrome/src/* dist/chrome-extension && zip -j dist/chrome-extension.zip dist/chrome-extension/*",
+    "build-firefox": "mkdir -p dist/firefox-extension; cp -r src/* firefox/src/* dist/firefox-extension && zip -j dist/firefox-extension.zip dist/firefox-extension/*",
+    "clean": "rm -rf dist",
+    "build": "\"$npm_execpath\" build-chrome && \"$npm_execpath\" build-firefox"
+  }
 }
