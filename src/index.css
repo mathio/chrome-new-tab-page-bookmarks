@@ -4,17 +4,20 @@
 }
 body {
 	font-size: 13px;
+	font-family: sans-serif;
 }
 ul#root {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
+	justify-content: space-around;
 	margin-left: 20px;
 }
 ul#root > li {
 	margin-right: 20px;
 }
 h3 {
+	margin-top: 15px;
 	font-size: 18px;
 }
 ul {
@@ -38,4 +41,5 @@ a > img {
 	margin-right: 4px;
 	width: 16px;
 	height: 16px;
+	vertical-align: text-bottom;
 }
