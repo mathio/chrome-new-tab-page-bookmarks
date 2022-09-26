@@ -2,28 +2,45 @@
 
 Displays your bookmarks in multiple columns for quick access from the new tab page.
 
+Works in both Chrome and Firefox browsers.
+
 ## Installation
+
+### Chrome
 
 From Chrome Web Store:
 1. go to [Chrome Web Store](https://chrome.google.com/webstore/detail/new-tab-page-bookmarks/nenadkoihofnhlaokenacmknknmlgdcm)
 2. Click `Add to Chrome` button
 
-Manually: 
+Manually:
 1. [Download latest release from Github](https://github.com/mathio/chrome-new-tab-page-bookmarks/releases/download/latest/chrome-extension.zip)
 2. Unpack contents of the zip file to a directory (eg. `chrome-extension/`)
 3. Go to Chrome menu `⋮` -> `More Tools` -> `Extensions` and enable `Developer mode` in the top right corner.
 4. Click on `Load unpacked` button and point to `chrome-extension/` directory.
 5. Open new browser tab to see the extension!
 
+### Firefox
+
+Manually:
+1. [Download latest release from Github](https://github.com/mathio/chrome-new-tab-page-bookmarks/releases/download/latest/firefox-extension.zip)
+2. Go to Firefox menu `☰` -> `Add-ons and themes`
+3. Click gear icon `⚙` -> `Debug add-ons`
+4. Click `Load temporary add-on` button
+5. Select `firefox-extension.zip`
+6. Open new browser tab to see the extension!
 
 ## Preview
 
-![screenshot](https://raw.githubusercontent.com/mathio/chrome-new-tab-page-bookmarks/main/store/screenshot_1280x800.png "Extension Screenshot")
+![Chrome Screenshot](https://raw.githubusercontent.com/mathio/chrome-new-tab-page-bookmarks/main/store/chrome_screenshot_1280x800.png "Chrome Screenshot")
 
 ## Description
 
-- does NOT manage your bookmarks, the built-in bookmarks manager for that (`CMD+ALT+B` / `CTRL+SHIFT+O`)
-- does NOT sync your bookmarks, Chrome already does that
+- does NOT manage your bookmarks, use the built-in bookmarks manager for that:
+    - Chrome: `CMD+ALT+B` / `CTRL+SHIFT+O`
+    - Firefox: `CMD+SHIFT+O` / `CTRL+SHIFT+O`
+- does NOT sync your bookmarks, your browser already does that
+    - [Sync in Chrome](https://support.google.com/chrome/answer/185277)
+    - [Firefox Sync](https://www.mozilla.org/en-US/firefox/sync/)
 - there are NO settings, deal with it
 - just displays your bookmarks in multiple columns for quick access from the new tab page
 - displays favicons for your bookmarks (via Google API)
@@ -36,4 +53,4 @@ Extension requires [permissions to access your bookmarks](https://developer.chro
 
 ## Development
 
-Run `yarn build` to zip the extension for the purpose of uploading to Chrome Web Store.
+Run `yarn build` to zip the extension for distribution (for Chrome and Firefox).
