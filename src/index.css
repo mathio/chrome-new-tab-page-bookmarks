@@ -10,7 +10,6 @@ ul#root {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
-	justify-content: space-around;
 	margin-left: 20px;
 }
 ul#root > li {
