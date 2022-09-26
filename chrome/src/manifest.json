@@ -1,10 +1,10 @@
 {
   "name": "New Tab Page Bookmarks",
   "description": "Displays your bookmarks in multiple columns for quick access from the new tab page",
-  "version": "1.0",
+  "version": "1.1",
   "manifest_version": 3,
   "author": "https://github.com/mathio",
-  "chrome_url_overrides" : {
+  "chrome_url_overrides": {
     "newtab": "index.html"
   },
   "icons": {
@@ -13,7 +13,5 @@
     "48": "icon48.png",
     "128": "icon128.png"
   },
-  "permissions": [
-    "bookmarks"
-  ]
+  "permissions": ["bookmarks"]
 }
