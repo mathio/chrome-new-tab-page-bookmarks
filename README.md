@@ -13,7 +13,7 @@ From Chrome Web Store:
 2. Click `Add to Chrome` button
 
 Manually:
-1. [Download latest release from Github](https://github.com/mathio/chrome-new-tab-page-bookmarks/releases/download/latest/chrome-extension.zip)
+1. [Download latest Chrome release from Github](https://github.com/mathio/chrome-new-tab-page-bookmarks/releases/download/latest/chrome-extension.zip)
 2. Unpack contents of the zip file to a directory (eg. `chrome-extension/`)
 3. Go to Chrome menu `⋮` -> `More Tools` -> `Extensions` and enable `Developer mode` in the top right corner.
 4. Click on `Load unpacked` button and point to `chrome-extension/` directory.
@@ -21,8 +21,12 @@ Manually:
 
 ### Firefox
 
+From Firefox Add-ons:
+1. go to [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/new-tab-page-bookmarks/)
+2. click `Add to Firefox` button
+
 Manually:
-1. [Download latest release from Github](https://github.com/mathio/chrome-new-tab-page-bookmarks/releases/download/latest/firefox-extension.zip)
+1. [Download latest Firefox release from Github](https://github.com/mathio/chrome-new-tab-page-bookmarks/releases/download/latest/firefox-extension.zip)
 2. Go to Firefox menu `☰` -> `Add-ons and themes`
 3. Click gear icon `⚙` -> `Debug add-ons`
 4. Click `Load temporary add-on` button
@@ -32,6 +36,8 @@ Manually:
 ## Preview
 
 ![Chrome Screenshot](https://raw.githubusercontent.com/mathio/chrome-new-tab-page-bookmarks/main/store/chrome_screenshot_1280x800.png "Chrome Screenshot")
+
+![Firefox Screenshot](https://raw.githubusercontent.com/mathio/chrome-new-tab-page-bookmarks/main/store/firefox_screenshot_1280x800.png "FIrefox Screenshot")
 
 ## Description
 
@@ -54,3 +60,5 @@ Extension requires [permissions to access your bookmarks](https://developer.chro
 ## Development
 
 Run `yarn build` to zip the extension for distribution (for Chrome and Firefox).
+
+It can be distributed manually (as zip file) or manually uploaded to Chrome Web Store and Firefox Add-on Developer Hub.
