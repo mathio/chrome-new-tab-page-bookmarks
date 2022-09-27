@@ -43,5 +43,5 @@ const renderBookmarksBar = (bookmarksBarId) => {
   })
 }
 
-const bookmarksBarId = !!chrome.app ? '1' : 'toolbar_____'
+const bookmarksBarId = !!chrome ? '1' : 'toolbar_____'
 renderBookmarksBar(bookmarksBarId)
