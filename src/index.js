@@ -43,5 +43,22 @@ const renderBookmarksBar = (bookmarksBarId) => {
   })
 }
 
-const bookmarksBarId = !!chrome ? '1' : 'toolbar_____'
-renderBookmarksBar(bookmarksBarId)
+const renderToggleLink = () => {
+  const linkElm = document.querySelector('a#toggle')
+  const TOGGLE_KEY_NAME = 'hideBookmarksBar'
+  const isHidden = window.localStorage.getItem(TOGGLE_KEY_NAME) === 'yes'
+  linkElm.innerText = isHidden ? 'show' : 'hide'
+  document.querySelector('#root').style.display = isHidden ? 'none' : 'flex'
+
+  linkElm.onclick = () => {
+    const wasHidden = window.localStorage.getItem(TOGGLE_KEY_NAME) === 'yes'
+    window.localStorage.setItem(TOGGLE_KEY_NAME, wasHidden ? 'no' : 'yes')
+    linkElm.innerText = wasHidden ? 'hide' : 'show'
+    document.querySelector('#root').style.display = wasHidden ? 'flex' : 'none'
+  }
+}
+window.addEventListener('load', () => {
+  const bookmarksBarId = !!chrome ? '1' : 'toolbar_____'
+  renderBookmarksBar(bookmarksBarId)
+  renderToggleLink()
+})

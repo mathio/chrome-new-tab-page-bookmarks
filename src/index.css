@@ -15,7 +15,7 @@ ul#root {
 ul#root > li {
 	margin-right: 20px;
 }
-h3 {
+ul#root h3 {
 	margin-top: 15px;
 	font-size: 18px;
 }
@@ -23,22 +23,33 @@ ul {
 	list-style: none;
 	padding: 10px 0 10px 6px;
 }
-li {
+ul#root li {
 	margin-bottom: 4px;
 }
-a {
+ul#root a {
 	display: block;
 	color: black;
 	text-decoration: none;
 	padding: 3px;
 	line-height: 22px;
 }
-a:hover {
+ul#root a:hover {
 	background: #eee;
 }
-a > img {
+ul#root a > img {
 	margin-right: 4px;
 	width: 16px;
 	height: 16px;
 	vertical-align: text-bottom;
+}
+a#toggle {
+	color: #aaa;
+	font-size: 10px;
+	cursor: pointer;
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+}
+a#toggel:hover {
+	color: #222;
 }

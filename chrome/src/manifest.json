@@ -1,7 +1,7 @@
 {
   "name": "New Tab Page Bookmarks",
   "description": "Displays your bookmarks in multiple columns for quick access from the new tab page",
-  "version": "1.1",
+  "version": "1.3",
   "manifest_version": 3,
   "author": "https://github.com/mathio",
   "chrome_url_overrides": {
