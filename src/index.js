@@ -1,3 +1,5 @@
+import { decodeBlurHash } from './fast-blurhash.js'
+
 const iconUrl = (href) => {
   const { origin } = new URL(href)
   return `https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${origin}&size=32`
@@ -66,7 +68,6 @@ const renderToggleLink = () => {
 
 const IMAGE_KEY_NAME = 'bookmarksBarImage'
 const IMAGE_VALID_MS = 15 * 60 * 1000 // 15 minutes
-const IMAGE_CLASS_NAME = 'image-bg'
 
 const initImage = async () => {
   if (!isBookmarksBarHidden()) {
@@ -86,7 +87,7 @@ const initImage = async () => {
       )
       const data = await response.json()
 
-      const { urls, user, links } = data || {}
+      const { urls, user, links, blur_hash: blurhash } = data || {}
 
       const imageUrl = urls?.raw
       const imageLink = `${links?.html}${utmParams}`
@@ -97,33 +98,50 @@ const initImage = async () => {
       const userLink = `${user?.links?.html}${utmParams}`
 
       const attribution = `Photo by <a href="${userLink}">${userFullName}</a> on <a href="${imageLink}">Unsplash</a>`
-      window.localStorage.setItem(
-        IMAGE_KEY_NAME,
-        JSON.stringify({
-          url: imageUrl,
-          attribution,
-          created: Date.now(),
-        })
-      )
-      showImage({ url: imageUrl, attribution })
+      const imageData = {
+        url: imageUrl,
+        attribution,
+        blurhash,
+        created: Date.now(),
+      }
+      window.localStorage.setItem(IMAGE_KEY_NAME, JSON.stringify(imageData))
+      showImage(imageData)
     }
   }
 }
 
 const hideImage = () => {
-  document.body.classList.remove(IMAGE_CLASS_NAME)
-  document.body.style.backgroundImage = 'none'
+  document.querySelector('#image')?.remove()
   document.querySelector('#image-attribution')?.remove()
+  document.querySelector('#canvas')?.remove()
 }
 
-const showImage = ({ url, attribution }) => {
+const showImage = ({ url, attribution, blurhash }) => {
+  let canvas = document.querySelector('#canvas')
+  if (!canvas) {
+    canvas = document.createElement('canvas')
+    canvas.id = 'canvas'
+    canvas.width = 32
+    canvas.height = 32
+    document.body.append(canvas)
+  }
+  const ctx = canvas.getContext('2d')
+  const pixels = decodeBlurHash(blurhash, 32, 32)
+  const imageData = new ImageData(pixels, 32, 32)
+  ctx.putImageData(imageData, 0, 0)
+
   const imageWidth = window.innerWidth ?? 1920
   const imageHeight = window.innerHeight ?? 1080
   const pixelRatio = window.devicePixelRatio ?? 1
   const resizedImageUrl = `${url}&w=${imageWidth}&h=${imageHeight}&fit=crop&dpr=${pixelRatio}`
 
-  document.body.classList.add(IMAGE_CLASS_NAME)
-  document.body.style.backgroundImage = `url('${resizedImageUrl}')`
+  let imageElm = document.querySelector('#bg-image')
+  if (!imageElm) {
+    imageElm = document.createElement('img')
+    imageElm.id = 'bg-image'
+    document.body.append(imageElm)
+  }
+  imageElm.style.backgroundImage = `url('${resizedImageUrl}')`
 
   const attributionElm = document.createElement('p')
   attributionElm.id = 'image-attribution'

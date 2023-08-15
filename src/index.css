@@ -54,14 +54,10 @@ a#toggle {
 	right: 10px;
 	padding: 5px;
 	background: rgba(255,255,255,0.75);
+	z-index: 9;
 }
 a#toggle:hover {
 	background: rgba(255,255,255,0.9);
-}
-.image-bg {
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
 }
 p#image-attribution {
 	font-size: 10px;
@@ -71,7 +67,23 @@ p#image-attribution {
 	padding: 5px;
 	background: rgba(255,255,255,0.75);
 	color: #000;
+	z-index: 9;
 }
 p#image-attribution a {
 	color: #000;
+}
+#canvas {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: -1;
+}
+#bg-image {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 1;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
 }
