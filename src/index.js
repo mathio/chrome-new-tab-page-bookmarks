@@ -111,7 +111,7 @@ const initImage = async () => {
 }
 
 const hideImage = () => {
-  document.querySelector('#image')?.remove()
+  document.querySelector('#bg-image')?.remove()
   document.querySelector('#image-attribution')?.remove()
   document.querySelector('#canvas')?.remove()
 }
