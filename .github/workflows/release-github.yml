@@ -25,7 +25,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           automatic_release_tag: latest
           prerelease: false
-          title: Build ${{ github.event.repository.updated_at}}
+          title: Build ${{ github.event.repository.pushed_at }}
           files: |
             dist/chrome-extension.zip
             dist/firefox-extension.zip

@@ -29,6 +29,11 @@ const renderNode =
       const ul = addElm(li, 'ul')
       children.forEach(renderNode(ul))
     } else if (href) {
+      const parentUl = li.closest('ul')
+      if (parentUl?.id === 'root') {
+        parentUl.className = 'flat-bookmark-structure'
+      }
+
       const icon = `<img src="${iconUrl(href)}" alt="${title.substring(
         0,
         1
@@ -38,11 +43,28 @@ const renderNode =
     }
   }
 
-const renderBookmarksBar = (bookmarksBarId) => {
-  chrome.bookmarks.getSubTree(bookmarksBarId, function ([rootNode]) {
-    const root = document.querySelector('#root')
-    rootNode.children.forEach(renderNode(root))
-  })
+const renderBookmarksBar = async () => {
+  const currentBrowser = typeof browser !== 'undefined' ? browser : chrome
+  const domRoot = document.querySelector('#root')
+
+  const [rootNode] = await currentBrowser.bookmarks.getTree()
+
+  if (!rootNode?.children) {
+    throw new Error('Unable to retrieve bookmarks')
+  }
+
+  //
+  rootNode.children
+    .filter(
+      (item) =>
+        item.folderType === 'bookmarks-bar' || // chrome: find using folderType, there can be more than one (https://developer.chrome.com/blog/bookmarks-sync-changes)
+        item.id === 'toolbar_____' // firefox: find using ID
+    )
+    .forEach((bar) => {
+      bar.children.forEach(renderNode(domRoot))
+    })
+
+  console.log(rootNode)
 }
 
 const TOGGLE_KEY_NAME = 'hideBookmarksBar'
@@ -150,8 +172,7 @@ const showImage = ({ url, attribution, blurhash }) => {
 }
 
 window.addEventListener('load', () => {
-  const bookmarksBarId = !!chrome ? '1' : 'toolbar_____'
-  renderBookmarksBar(bookmarksBarId)
+  renderBookmarksBar()
   renderToggleLink()
   initImage()
 })
