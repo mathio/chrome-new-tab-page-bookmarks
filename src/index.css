@@ -9,6 +9,8 @@ body {
 body {
   font-size: 13px;
   font-family: sans-serif;
+  color: #000;
+  background: #fff;
 }
 ul#root {
   display: flex;
@@ -93,4 +95,31 @@ p#image-attribution a {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: #fff;
+    background: #333;
+  }
+  a#toggle {
+    color: #fff;
+    background: rgba(50, 50, 50, 0.85);
+  }
+  a#toggle:hover {
+    background: rgba(50, 50, 50, 0.95);
+  }
+  ul#root a {
+    color: #fff;
+  }
+  ul#root a:hover {
+    background: #444;
+  }
+  p#image-attribution {
+    background: rgba(50, 50, 50, 0.85);
+    color: #e0e0e0;
+  }
+  p#image-attribution a {
+    color: #e0e0e0;
+  }
 }

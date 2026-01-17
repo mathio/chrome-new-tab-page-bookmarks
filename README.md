@@ -2,7 +2,7 @@
 
 Displays your bookmarks in multiple columns for quick access from the new tab page.
 
-Works in both Chrome and Firefox browsers.
+Works in both Chrome and Firefox browsers. Supports light & dark theme based on your operating system theme.
 
 ## Installation
 
@@ -44,6 +44,7 @@ Manually:
 ## Description
 
 - displays bookmars from Bookmarks Bar
+- supports dark mode (based on your operating system theme)
 - does NOT manage your bookmarks, use the built-in bookmarks manager for that:
   - Chrome: `CMD+ALT+B` / `CTRL+SHIFT+O`
   - Firefox: `CMD+SHIFT+O` / `CTRL+SHIFT+O`

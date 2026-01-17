@@ -1,7 +1,7 @@
 {
   "name": "New Tab Page Bookmarks",
   "description": "Displays your bookmarks in multiple columns for quick access from the new tab page",
-  "version": "1.8",
+  "version": "1.9",
   "manifest_version": 2,
   "author": "https://github.com/mathio",
   "chrome_url_overrides": {
@@ -13,5 +13,13 @@
     "48": "icon48.png",
     "128": "icon128.png"
   },
-  "permissions": ["bookmarks"]
+  "permissions": ["bookmarks"],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{4ff4403a-1536-415e-97b9-117f57d67dbf}",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  }
 }

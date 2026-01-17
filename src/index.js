@@ -5,10 +5,10 @@ const iconUrl = (href) => {
   return `https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${origin}&size=32`
 }
 
-const addElm = (parent, tag, content, attributes) => {
+const addElm = (parent, tag, text, attributes) => {
   const elm = document.createElement(tag)
-  if (content) {
-    elm.innerHTML = content
+  if (text) {
+    elm.textContent = text
   }
   if (attributes) {
     Object.entries(attributes).forEach(([key, value]) => {
@@ -34,12 +34,18 @@ const renderNode =
         parentUl.className = 'flat-bookmark-structure'
       }
 
-      const icon = `<img src="${iconUrl(href)}" alt="${title.substring(
-        0,
-        1
-      )}" />`
+      const link = document.createElement('a')
+      link.href = href
 
-      addElm(li, 'a', `${icon} ${title}`, { href })
+      const icon = document.createElement('img')
+      icon.src = iconUrl(href)
+      icon.alt = title.substring(0, 1)
+      link.append(icon)
+
+      const text = document.createTextNode(` ${title}`)
+      link.append(text)
+
+      li.append(link)
     }
   }
 
@@ -95,10 +101,10 @@ const initImage = async () => {
   if (!isBookmarksBarHidden()) {
     hideImage()
   } else {
-    const image = JSON.parse(
-      window.localStorage.getItem(IMAGE_KEY_NAME) || '{}'
-    )
-    if (image && image.created > Date.now() - IMAGE_VALID_MS) {
+    let image = JSON.parse(window.localStorage.getItem(IMAGE_KEY_NAME) || '{}')
+    const hasImage =
+      image && image.attribution && typeof image.attribution !== 'string'
+    if (hasImage && image.created > Date.now() - IMAGE_VALID_MS) {
       showImage(image)
     } else {
       const utmParams =
@@ -119,10 +125,13 @@ const initImage = async () => {
         .join(' ')
       const userLink = `${user?.links?.html}${utmParams}`
 
-      const attribution = `Photo by <a href="${userLink}">${userFullName}</a> on <a href="${imageLink}">Unsplash</a>`
       const imageData = {
         url: imageUrl,
-        attribution,
+        attribution: {
+          userLink,
+          userFullName,
+          imageLink,
+        },
         blurhash,
         created: Date.now(),
       }
@@ -167,7 +176,18 @@ const showImage = ({ url, attribution, blurhash }) => {
 
   const attributionElm = document.createElement('p')
   attributionElm.id = 'image-attribution'
-  attributionElm.innerHTML = attribution
+  const userLink = document.createElement('a')
+  userLink.href = attribution.userLink
+  userLink.textContent = attribution.userFullName
+  const imageLink = document.createElement('a')
+  imageLink.href = attribution.imageLink
+  imageLink.textContent = 'Unsplash'
+  attributionElm.append(
+    document.createTextNode('Photo by '),
+    userLink,
+    document.createTextNode(' on '),
+    imageLink
+  )
   document.body.appendChild(attributionElm)
 }
 
