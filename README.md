@@ -55,7 +55,7 @@ Manually:
 - just displays your bookmarks in multiple columns for quick access from the new tab page
 - organize your bookmarks in folders under Bookmarks Bar to display in columns (or don't)
 - displays favicons for your bookmarks
-- displays small "show" / "hide" toggle in bottom right corner to hide all your bookmarks (for when you are sharing your screen or someone is looking over your shoulder)
+- can show / hide all your bookmarks (for when you are sharing your screen or someone is looking over your shoulder)
 - when you hide bookmarks [a random photo](https://unsplash.com/documentation#get-a-random-photo) from [wallpaper topic on Unsplash](https://unsplash.com/t/wallpapers?utm_source=chrome-new-tab-page-bookmarks&utm_medium=referral) is displayed once every 15 minutes
 
 ## Privacy and permission justification
@@ -73,3 +73,9 @@ Run `yarn dev` to watch for changes and build the extension for Chrome. Load the
 Run `yarn build` to zip the extension for distribution for both Chrome and Firefox.
 
 It can be distributed manually (as zip file) or manually uploaded to Chrome Web Store and Firefox Add-on Developer Hub.
+
+## Third-party libraries
+
+- Bootstrap Icons: https://icons.getbootstrap.com/
+- Blurhash: https://blurha.sh/
+- fast-blurhash: https://github.com/mad-gooze/fast-blurhash
